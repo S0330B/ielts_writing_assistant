@@ -2,6 +2,7 @@ import streamlit as st
 from dotenv import load_dotenv
 from groq_client import groq_generate
 import requests
+import os
 
 load_dotenv()
 if "GROQ_API_KEY" in st.secrets:
