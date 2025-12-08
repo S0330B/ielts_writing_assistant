@@ -37,14 +37,19 @@ def generate_ielts_content(topic: str) -> dict:
     """
 
     essay_prompt = f"""
-    You are an official IELTS examiner.
-    Write a full Band-9 IELTS Writing Task 2 essay with exactly 4 paragraphs (Introduction, Body 1, Body 2, Conclusion).
-    
-    ✅ Formal academic tone  
-    ✅ Clear introduction, body paragraphs, and conclusion  
-    ✅ Advanced vocabulary and grammar  
-    ✅ Coherent arguments and examples  
-    ✅ Paragraphs separated clearly
+    You are an experienced IELTS examiner.
+
+Write a Band-9 IELTS Writing Task 2 essay on the following topic with these rules:
+
+1. Exactly 4 paragraphs: Introduction, Body Paragraph 1, Body Paragraph 2, Conclusion.  
+2. Strict word count: **no fewer than 270 words and no more than 300 words**. You **must count words carefully**.  
+3. Formal academic tone, precise vocabulary, and varied sentence structures.  
+4. Use advanced grammar suitable for Band 8–9 candidates.  
+5. Present coherent, logically developed arguments with **specific examples**.  
+6. Use strong topic sentences, cohesive devices, and clear progression of ideas.  
+7. Avoid contractions and informal language.  
+8. At the **end of the essay**, write: “Word count: XXX” with the exact number of words and make it bold.
+
 
     Topic:
     {topic}
