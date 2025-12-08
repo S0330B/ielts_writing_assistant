@@ -137,15 +137,19 @@ if st.session_state.generated:
     col_vocab, col_grammar = st.columns(2)
 
     with col_vocab:
-        st.subheader("📚 Context-Related Vocabulary (Numbered)")
+        st.subheader("📚 Context-Related Vocabulary")
         for i, word in enumerate(st.session_state.vocab, start=1):
             st.write(f"{i}. {word}")
 
     with col_grammar:
-        st.subheader("🔧 Advanced Grammar Structures (Numbered)")
+        st.subheader("🔧 Advanced Grammar Structures")
         for i, g in enumerate(st.session_state.grammar, start=1):
             st.write(f"{i}. {g}")
 
     # Essay below
     st.subheader("📝 Band-9 Sample Essay")
     st.markdown(st.session_state.essay)
+
+    # Developed by Sushil Sharma Subedi
+st.caption("Developed by Sushil Sharma Subedi")
+st.caption("https://github.com/S0330B/ielts_writing_assistant")
