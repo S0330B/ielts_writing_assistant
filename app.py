@@ -14,10 +14,9 @@ st.set_page_config(
     layout="wide"
 )
 
-st.title("✍️ IELTS Writing Task Generator – Band 9")
+st.title("IELTS Writing Task Generator (Band 9)")
 st.caption("Generate context-based vocabulary, grammar structures, and a Band-9 level essay.")
 
-# ------------------ FUNCTIONS ------------------ #
 
 def generate_ielts_content(topic: str) -> dict:
     vocabulary_prompt = f"""
@@ -81,7 +80,6 @@ def get_word_meaning(word: str):
     except Exception:
         return "Meaning not found."
 
-# ------------------ SESSION STATE ------------------ #
 if "generated" not in st.session_state:
     st.session_state.generated = False
 if "vocab" not in st.session_state:
@@ -93,16 +91,12 @@ if "essay" not in st.session_state:
 if "meaning" not in st.session_state:
     st.session_state.meaning = ""
 
-# ------------------ UI ------------------ #
-
-# --- Topic Input ---
 topic = st.text_area(
-    "📌 Enter IELTS Writing Task Topic",
+    "Enter IELTS Writing Task Topic",
     placeholder="Some people believe that technology has made our lives more complicated. Discuss both views and give your opinion.",
     height=120
 )
 
-# --- Search Box (Persistent) ---
 col_main, col_search = st.columns([3, 1])
 with col_search:
     search_word = st.text_input("🔍 Search Word")
@@ -110,15 +104,12 @@ with col_search:
         if search_word.strip():
             st.session_state.meaning = get_word_meaning(search_word.strip())
 
-# --- Display meaning ---
 if st.session_state.meaning:
     st.info(f"**{search_word.strip()}**: {st.session_state.meaning}")
 
-# --- Generate Button ---
 with col_main:
     generate = st.button("🎯 Generate Band-9 Content", type="primary")
 
-# --- Generate Content ---
 if generate:
     if not topic.strip():
         st.error("Please enter an IELTS writing task topic.")
@@ -132,7 +123,6 @@ if generate:
         st.session_state.generated = True
         st.success("✅ Band-9 Content Generated")
 
-# --- Display Vocabulary & Grammar ---
 if st.session_state.generated:
     col_vocab, col_grammar = st.columns(2)
 
@@ -146,10 +136,9 @@ if st.session_state.generated:
         for i, g in enumerate(st.session_state.grammar, start=1):
             st.write(f"{i}. {g}")
 
-    # Essay below
     st.subheader("📝 Band-9 Sample Essay")
     st.markdown(st.session_state.essay)
 
-    # Developed by Sushil Sharma Subedi
+# Developed by Sushil Sharma Subedi
 st.caption("Developed by Sushil Sharma Subedi")
 st.caption("https://github.com/S0330B/ielts_writing_assistant")
