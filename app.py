@@ -14,8 +14,8 @@ st.set_page_config(
     layout="wide"
 )
 
-st.title("IELTS Writing Task Generator (Band 9)")
-st.caption("Generate context-based vocabulary, grammar structures, and a Band-9 level essay.")
+st.title("IELTS Writing Task Generator")
+st.caption("Generate context-based vocabulary, grammar structures, and an essay.")
 
 
 def generate_ielts_content(topic: str) -> dict:
