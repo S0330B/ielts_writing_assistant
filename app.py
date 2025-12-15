@@ -136,7 +136,7 @@ if st.session_state.generated:
         for i, g in enumerate(st.session_state.grammar, start=1):
             st.write(f"{i}. {g}")
 
-    st.subheader("📝 Band-9 Sample Essay")
+    st.subheader("📝 Sample Essay")
     st.markdown(st.session_state.essay)
 
 # Developed by Sushil Sharma Subedi
