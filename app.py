@@ -108,20 +108,20 @@ if st.session_state.meaning:
     st.info(f"**{search_word.strip()}**: {st.session_state.meaning}")
 
 with col_main:
-    generate = st.button("🎯 Generate Band-9 Content", type="primary")
+    generate = st.button("🎯 Generate Content", type="primary")
 
 if generate:
     if not topic.strip():
         st.error("Please enter an IELTS writing task topic.")
     else:
-        with st.spinner("Generating Band-9 IELTS content..."):
+        with st.spinner("Generating IELTS content..."):
             raw = generate_ielts_content(topic)
 
         st.session_state.vocab = clean_list(raw["vocabulary"])
         st.session_state.grammar = clean_list(raw["grammar"])
         st.session_state.essay = raw["essay"]
         st.session_state.generated = True
-        st.success("✅ Band-9 Content Generated")
+        st.success("✅ Content Generated")
 
 if st.session_state.generated:
     col_vocab, col_grammar = st.columns(2)
@@ -141,4 +141,3 @@ if st.session_state.generated:
 
 # Developed by Sushil Sharma Subedi
 st.caption("Developed by Sushil Sharma Subedi")
-st.caption("https://github.com/S0330B/ielts_writing_assistant")
